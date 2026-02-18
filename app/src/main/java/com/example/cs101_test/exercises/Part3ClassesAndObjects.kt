@@ -16,6 +16,13 @@ object Part3ClassesAndObjects {
     // ---------------------- EXERCISE 1
     // Create a Book class with 3 attributes: title, author, and price (Double)
     // Add a method to display book details called displayDetails that prints title, author and price
+    class Book (val title: String, val author: String, val price: Double){
+        fun displayDetails(){
+            println("Title: $title")
+            println("Author: $author")
+            println("Price: $price")
+        }
+    }
 
 
     // ---------------------- EXERCISE 2
@@ -23,6 +30,26 @@ object Part3ClassesAndObjects {
     // The grades variable must not be in the contructor, but instead created inside the class.
     // Add methods to add a grade (addGrade), calculate the average grade (averageGrade as Double),
     // and display student details (displayDetails) which must print name, age and average grade
+    class Student (val name: String, val age: Int){
+        val grades = mutableListOf<Int>()
+
+        fun addGrade(grade: Int) {
+            grades.add(grade)
+        }
+
+        fun averageGrade(): Double {
+            if (grades.isEmpty()) return 0.0
+            return grades.sum().toDouble() / grades.size
+        }
+
+        fun displayDetails(){
+            println("Name: $name")
+            println("Age: $age")
+            println("Average grade: ${averageGrade()}")
+        }
+    }
+
+
 
 
     // ---------------------- EXERCISE 3
