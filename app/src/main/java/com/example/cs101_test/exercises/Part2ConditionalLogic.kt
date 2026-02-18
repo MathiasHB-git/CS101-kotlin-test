@@ -5,13 +5,18 @@ object Part2ConditionalLogic {
     // Create a function that takes an integer as a parameter and returns "Positive", "Negative", or "Zero".
     fun checkNumber(number: Int): String {
         // Your code here
-        return ""
+        if (number > 0) {return "Positive"}
+        else if (number == 0) {return "Zero"}
+        else {return "Negative"}
     }
 
     // ---------------------- EXERCISE 2
     // Create a function that takes a string and prints each character on a new line.
     fun printChars(input: String) {
         // Your code here
+        for (letter in input){
+            println(letter)
+        }
     }
 
     // ---------------------- EXERCISE 3
@@ -19,29 +24,46 @@ object Part2ConditionalLogic {
     // For example if input is 45 then output should be 9 (4+5)
     fun sumDigits(number: Int): Int {
         // Your code here
-        return 0
+        val numberArray = mutableListOf<Int>()
+        val numberString = number.toString()
+        for (i in 0 until numberString.length) {
+            numberArray.add(numberString[i].digitToInt())
+
+        }
+        var sum = 0
+        for (i in 0 until numberArray.size) {
+            sum += numberArray[i]
+        }
+
+        return sum
+
     }
+
 
     // ---------------------- EXERCISE 4
     // Create a function that takes a list of integers and returns a new list with only the odd numbers.
     // For example if input is (1,2,3,4,5) then output should be (1,3,5)
     fun filterOddNumbers(numbers: List<Int>): List<Int> {
         // Your code here
-        return listOf()
+        return numbers.filter {number -> number %2 != 0}
     }
 
     // ---------------------- EXERCISE 5
     // Create a function that takes a list of strings and returns a new list with all strings in lowercase.
     fun transformToLowercase(strings: List<String>): List<String> {
         // Your code here
-        return listOf()
+        return strings.map { string -> string.lowercase() }
     }
 
     // ---------------------- EXERCISE 6
     // Create a function that prints numbers from 1 to 10 with println(), but skips multiples of 3 using a loop.
     // Expected output: "1", "2", "4", "5", "7", "8", "10"
     fun printNumbersSkipMultiplesOf3() {
-        // Your code here
+        for (i in 0 until 11) {
+            if (i % 3 != 0) {
+                println(i)
+            }
+        }
     }
 
     // ---------------------- EXERCISE 7
@@ -50,15 +72,17 @@ object Part2ConditionalLogic {
     // White spaces should be ignored.
     fun isPalindrome(input: String): Boolean {
         // Your code here
-        return false
+        val noWhiteSpaceInput = input.replace(" ","")
+       val reversedInput = noWhiteSpaceInput.reversed()
+        return noWhiteSpaceInput == reversedInput
     }
 
     // ---------------------- EXERCISE 8
     // Modify the function to have default values for both width and height and to return the area of the rectangle.
     // Example of a function with a default value "world": fun greet(name: String = "world") {}
-    fun calculateArea(width: Int, height: Int): Int {
+    fun calculateArea(width: Int = 10, height: Int= 20): Int {
         // Your code here
-        return 0
+        return width * height
     }
 
     // ---------------------- EXERCISE 9
